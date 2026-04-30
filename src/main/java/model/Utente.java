@@ -26,4 +26,13 @@ public class Utente {
     public String getLogin() {
         return login;
     }
+
+    public String setPassword(String newPassword) {
+        this.password = newPassword;
+
+        System.out.println("Password has been changed. ");
+    }
+
+
+
 }

@@ -1,39 +1,54 @@
+package model;
+
+import java.util.ArrayList;
+
 public class Evento {
     private String titolo;
     private String descrizione;
     private int maxCapienza;
 
-    private Ospite[] ospiti;
-    private int ospitiCount;
+    private final ArrayList<Ospite> ospiti = new ArrayList<>();
+    private final ArrayList<Visitatore> visitatori = new ArrayList<>();
 
-    public Evento(String titolo, String descrizione, int maxCapienza) {
-        this.titolo = titolo;
-        this.descrizione = descrizione;
-        this.maxCapienza = maxCapienza;
+    public String getTitolo() { return titolo; }
+    public void setTitolo(String titolo) { this.titolo = titolo; }
+
+    public String getDescrizione() { return descrizione; }
+    public void setDescrizione(String descrizione) { this.descrizione = descrizione; }
+
+    public int getMaxCapienza() { return maxCapienza; }
+    public void setMaxCapienza(int maxCapienza) { this.maxCapienza = maxCapienza; }
 
 
-        this.ospiti = new Ospite[maxCapienza];
-        this.ospitiCount = 0;
+    public int getNumeroOspiti() {
+        return ospiti.size();
     }
 
-    public void addOspite(Ospite ospite) {
+    public int getNumeroVisitatori() {
+        return visitatori.size();
+    }
+
+
+    public void addOspite(Ospite o) {
         if (!isCapienzaFull()) {
-            ospiti[ospitiCount] = ospite;
-            ospitiCount++;
+            ospiti.add(o);
+            System.out.println("Guest added successfully.");
         } else {
-            System.out.println("Errore: Capienza massima raggiunta per l'evento " + titolo);
+            System.out.println("Error! Max capacity reached.");
+        }
+    }
+
+    public void addVisitatore(Visitatore v) {
+        if (!isCapienzaFull()) {
+            visitatori.add(v);
+            System.out.println("Visitor added successfully.");
+        } else {
+            System.out.println("Error! Max capacity reached.");
         }
     }
 
     public boolean isCapienzaFull() {
-        return ospitiCount >= maxCapienza;
-    }
-
-    public String getTitolo() {
-        return titolo;
-    }
-
-    public String getDescrizione() {
-        return descrizione;
+        int totalPeople = ospiti.size() + visitatori.size();
+        return totalPeople >= maxCapienza;
     }
 }

@@ -4,7 +4,7 @@ public class Padiglione {
     private String padiglioneID;
     private String nome;
 
-    public void setpadiglioneiD (String padiglioneID) {
+    public void setPadiglioneID (String padiglioneID) {
         this.padiglioneID = padiglioneID;
     }
     public String getPadiglioneID() {

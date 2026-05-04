@@ -45,6 +45,7 @@ public class Utente {
         return login;
     }
 
+    //ur dumass forgot the password, so u reset it to the new password
     public void setPassword(String newPassword) {
         this.password = newPassword;
 

@@ -5,6 +5,7 @@ public enum Ruolo {
     FUMETTISTA,
     COSPLAYER,
     CONTENT_CREATOR,
+    PRO_PLAYER,
     PERFORMER,
     ATTORE,
     DOPPIATORE

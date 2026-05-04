@@ -1,26 +1,18 @@
 package model;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Fiera {
-    private final String titolo;
-    private final ArrayList<Eventi> eventiFiera = new ArrayList<Eventi>();
+    private String titolo;
+    private final ArrayList<Evento> eventoFiera = new ArrayList<Evento>();
 
     public Fiera(String titolo) {
         this.titolo = titolo;
     }
 
-    public static Fiera setTitolo() {
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("Enter the Title of the Fiera: ");
-        String titolo = input.next();
-
-        return new Fiera(titolo);
+    public void setTitolo(String t) {
+        this.titolo = t;
     }
-
-
-    public void addEvento(Eventi e) {
-        eventiFiera.add(e);
+    public void addEvento(Evento e) {
+        eventoFiera.add(e);
     }
 }

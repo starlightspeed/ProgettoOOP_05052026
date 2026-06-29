@@ -1,29 +1,28 @@
 package gui;
 
-import controller.Controller;
-
 import javax.swing.*;
 
 public class Home {
-    private JPanel mainPanel;
-    private static JFrame frameHome;
-    private Controller controller;
+    JFrame frame = new JFrame();
+    JLabel label = new JLabel();
 
-    public static void main(String[] args) {
-        frameHome = new JFrame("Home");
-        frameHome.setContentPane(new Home().mainPanel);
-        frameHome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frameHome.pack();
-        frameHome.setVisible(true);
+    public Home (String title, int width, int height) {
+            frame.setTitle(title);
+            frame.setSize(width, height);
 
 
+
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setResizable(true);
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        }
     }
 
+    /*
     public Home() {
         controller = new Controller();
         // Add action listeners or other initialization code here
 
     }
-
-
-}
+    */

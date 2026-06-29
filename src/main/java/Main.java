@@ -7,7 +7,8 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
-        new Home("uhh idk", 500, 500);
+        new Home("Main Menu", 600, 500);
+
 
 
     }

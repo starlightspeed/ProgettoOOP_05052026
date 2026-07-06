@@ -3,6 +3,7 @@ package gui;
 import controller.Controller;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Home {
     private JPanel mainPanel;
@@ -12,6 +13,7 @@ public class Home {
     private JPasswordField passwordField;
     private JButton login;
     private JLabel password;
+    private JButton SignUp;
     private static JFrame frameHome;
     private Controller controller;
 
@@ -23,6 +25,8 @@ public class Home {
         frameHome.setVisible(true);
 
 
+
+
     }
 
     public Home() {
@@ -32,4 +36,9 @@ public class Home {
     }
 
 
+    /*private void createUIComponents() {
+        // TODO: place custom component creation code here
+        welcome.setFont(welcome.getFont().deriveFont(Font.BOLD, 28f));
+        welcome.setAlignmentX(Component.CENTER_ALIGNMENT);
+    }*/
 }

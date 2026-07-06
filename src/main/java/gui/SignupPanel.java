@@ -15,13 +15,13 @@ public class SignupPanel {
         frame.setTitle(title);
         frame.setSize(width, height);
 
-        // Title label at the top
+        // big title so u know what ur signing up for
         JLabel titleLabel = new JLabel("Create Account");
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         titleLabel.setFont(titleLabel.getFont().deriveFont(28f));
         frame.add(titleLabel, BorderLayout.NORTH);
 
-        // Form panel: Email, Password, Tipo, Sub-type
+        // the form. fill it out. or else hehe
         JPanel formPanel = new JPanel(new GridLayout(4, 2, 10, 5));
 
         JTextField emailField = new JTextField();
@@ -30,7 +30,7 @@ public class SignupPanel {
         JLabel subLabel = new JLabel("Mansione:");
         JComboBox<String> subCombo = new JComboBox<>();
 
-        // Pre-populate sub-combo with Mansione (default selection is Lavoratore)
+        // start with lavoratore. most ppl r workers amirite
         for (Mansione m : Mansione.values()) subCombo.addItem(m.name());
 
         formPanel.add(new JLabel("Email:"));
@@ -44,7 +44,7 @@ public class SignupPanel {
 
         frame.add(formPanel, BorderLayout.CENTER);
 
-        // Update sub-type dropdown when Tipo changes
+        // tipo changed? gotta update the sub thingy too
         tipoCombo.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 String selected = (String) e.getItem();
@@ -66,7 +66,7 @@ public class SignupPanel {
             }
         });
 
-        // Register button
+        // the big button. not red but still important
         JButton registerButton = new JButton("Register");
         registerButton.setPreferredSize(new Dimension(150, 60));
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -79,7 +79,7 @@ public class SignupPanel {
             String tipo = (String) tipoCombo.getSelectedItem();
             String sottoTipo = (String) subCombo.getSelectedItem();
 
-            // TODO: validazione e registrazione utente
+            // TODO: actually register the user lol
         });
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -88,5 +88,5 @@ public class SignupPanel {
         frame.setVisible(true);
     }
 
-    // TODO: registrazione utente
+    // TODO: still gotta do the registration thing
 }

@@ -3,16 +3,18 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 
-public class AccountPanel {
-    // account stuff. empty for now hehe
+/**
+ * evento window. placeholder vibes hehe
+ */
+public class EventoPanel {
     JFrame frame = new JFrame();
 
-    public AccountPanel(String title, int width, int height) {
+    public EventoPanel(String title, int width, int height) {
         frame.setTitle(title);
         frame.setSize(width, height);
 
-        // placeholder. looks cool tho
-        JLabel label = new JLabel("Account Panel");
+        // big texto say evento. very creative i know
+        JLabel label = new JLabel("Evento Panel");
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setFont(label.getFont().deriveFont(28f));
         frame.add(label, BorderLayout.CENTER);

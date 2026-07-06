@@ -1,55 +1,57 @@
 package gui;
 
-import model.Mansione;
-import model.Ruolo;
-
 import javax.swing.*;
 import java.awt.*;
 
 public class Home {
     JFrame frame = new JFrame();
-    JLabel label = new JLabel("Welcome to the Comicon!");
-    JPanel panel = new JPanel();
-    JButton button = new JButton("Add");
-    JComboBox<Ruolo> comboBox = new JComboBox<Ruolo>(Ruolo.values());
-    JComboBox<Mansione> comboBox2 = new JComboBox<Mansione>(Mansione.values());
-    JComboBox<Ruolo> comboBox3 = new JComboBox<Ruolo>(Ruolo.values());
+    CardLayout cardLayout = new CardLayout();
+    JPanel cardPanel = new JPanel(cardLayout);
 
+    public Home(String title, int width, int height) {
+        frame.setTitle(title);
+        frame.setSize(width, height);
 
-    public Home (String title, int width, int height) {
-            frame.setTitle(title);
-            frame.setSize(width, height);
+        // Home panel
+        JPanel homePanel = new JPanel(new BorderLayout());
 
-            // Sets the Layout Manager (chosen layout: FlowLayout)
-            frame.setLayout(new FlowLayout(FlowLayout.CENTER));
-            label.setHorizontalAlignment(SwingConstants.CENTER);
+        JLabel titleLabel = new JLabel("Comicon Main Menu!");
+        JLabel subtitleLabel = new JLabel("Seleziona le opzione");
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+        titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        subtitleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        centerPanel.add(titleLabel);
+        centerPanel.add(subtitleLabel);
+        titleLabel.setFont(titleLabel.getFont().deriveFont(28f));
+        homePanel.add(centerPanel, BorderLayout.CENTER);
 
-            // Puts the JLabel title
-            frame.add(label, BorderLayout.NORTH);
-            panel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
-            label.setFont(label.getFont().deriveFont(28f));
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JButton utenteMenu = new JButton("Utente Menu");
+        JButton eventoMenu = new JButton("Evento Menu");
+        JButton adminMenu = new JButton("Admin Menu");
+        utenteMenu.setPreferredSize(new Dimension(150, 60));
+        eventoMenu.setPreferredSize(new Dimension(150, 60));
+        adminMenu.setPreferredSize(new Dimension(150, 60));
+        buttonPanel.add(utenteMenu);
+        buttonPanel.add(eventoMenu);
+        buttonPanel.add(adminMenu);
+        homePanel.add(buttonPanel, BorderLayout.SOUTH);
 
-            // Puts the something Button
-            button.setPreferredSize(new Dimension(150, 60));
-            panel.add(button);
+        // Utente panel (separate file)
+        UtentePanel utentePanel = new UtentePanel(() -> cardLayout.show(cardPanel, "home"));
 
-            //shows the enum Biglietto
-            comboBox.setPreferredSize(new Dimension(120, 30));
-            panel.add(comboBox);
+        // Card panel
+        cardPanel.add(homePanel, "home");
+        cardPanel.add(utentePanel, "utente");
+        frame.add(cardPanel, BorderLayout.CENTER);
 
-            //shows the enum Mansione
-            comboBox2.setPreferredSize(new Dimension(120, 30));
-            panel.add(comboBox2);
+        // Navigation
+        utenteMenu.addActionListener(e -> cardLayout.show(cardPanel, "utente"));
 
-            //shows the enum Ruolo
-            comboBox3.setPreferredSize(new Dimension(120, 30));
-            panel.add(comboBox3);
-
-            frame.add(panel, BorderLayout.CENTER);
-
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setResizable(true);
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-        }
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(true);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
+}

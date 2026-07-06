@@ -7,7 +7,8 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
-        new Home("Main Menu", 500, 300);
+        // start the whole thing lol
+        new Home("Main Menu", 500, 350);
 
 
 

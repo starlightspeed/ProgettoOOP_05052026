@@ -4,13 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AccountPanel {
+    // account stuff. empty for now hehe
     JFrame frame = new JFrame();
 
     public AccountPanel(String title, int width, int height) {
         frame.setTitle(title);
         frame.setSize(width, height);
 
-        // Placeholder content
+        // placeholder. looks cool tho
         JLabel label = new JLabel("Account Panel");
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setFont(label.getFont().deriveFont(28f));

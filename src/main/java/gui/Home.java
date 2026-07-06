@@ -6,6 +6,12 @@ import javax.swing.*;
 
 public class Home {
     private JPanel mainPanel;
+    private JLabel welcome;
+    private JTextField usernameField;
+    private JLabel username;
+    private JPasswordField passwordField;
+    private JButton login;
+    private JLabel password;
     private static JFrame frameHome;
     private Controller controller;
 

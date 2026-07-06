@@ -1,6 +1,7 @@
 package gui;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class UtentePanel extends JPanel {
@@ -29,20 +30,20 @@ public class UtentePanel extends JPanel {
         // Login button on the left
         JButton loginButton = new JButton("Login");
         loginButton.setPreferredSize(new Dimension(150, 60));
-        JPanel loginWrapper = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel loginWrapper = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         loginWrapper.add(loginButton);
         bottomPanel.add(loginWrapper, BorderLayout.WEST);
         loginButton.addActionListener(e -> new AccountPanel("Account", 500, 400));
 
         // Centered back button
         JButton backButton = new JButton("Back to Home");
-        backButton.setPreferredSize(new Dimension(150, 60));
+        backButton.setPreferredSize(new Dimension(280, 60));
         JPanel backWrapper = new JPanel(new FlowLayout(FlowLayout.CENTER));
         backWrapper.add(backButton);
         bottomPanel.add(backWrapper, BorderLayout.CENTER);
         backButton.addActionListener(e -> onBack.run());
 
-        // Clickable sign up button — opens the registration window
+        // Clickable sign up button, opens the registration window
         JLabel signUp = new JLabel("Sign Up");
         signUp.setForeground(Color.BLUE.darker());
         signUp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

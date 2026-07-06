@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class UtentePanel extends JPanel {
-    // its a panel. calls home when u press back. neat.
+    // its a panel. calls home when u press back. noice.
     public UtentePanel(Runnable onBack) {
         setLayout(new BorderLayout());
 

@@ -45,25 +45,29 @@ public class Home {
         formPanel.add(Box.createVerticalStrut(25));
 
         // put ur username here
-        JPanel usernameRow = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        username = new JLabel("Username:");
+        JPanel usernameRow = new JPanel(new FlowLayout(FlowLayout.CENTER,0, 0));
+        username = new JLabel("Username: ");
         usernameField = new JTextField(15);
         usernameRow.add(username);
         usernameRow.add(usernameField);
         formPanel.add(usernameRow);
 
+        formPanel.add(Box.createVerticalStrut(5));
+
         // secret password time. no peeking hehehe
-        JPanel passwordRow = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        password = new JLabel("Password:");
+        JPanel passwordRow = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        password = new JLabel("Password: ");
         passwordField = new JPasswordField(15);
         passwordRow.add(password);
         passwordRow.add(passwordField);
         formPanel.add(passwordRow);
 
+        formPanel.add(Box.createVerticalStrut(10));
+
         // login and sign up. dynamic duo.
         JPanel loginRow = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
         login = new JButton("Login");
-        login.setPreferredSize(new Dimension(150, 40));
+        login.setPreferredSize(new Dimension(80, 25));
         loginRow.add(login);
 
         JButton signUp = new JButton("Sign Up");
@@ -94,8 +98,9 @@ public class Home {
         formPanel.add(buttonPanel);
 
         // ok put it all together now
-        JPanel rootPanel = new JPanel(new BorderLayout());
-        rootPanel.add(formPanel, BorderLayout.CENTER);
+        JPanel rootPanel = new JPanel(new GridBagLayout());
+        rootPanel.add(formPanel);
+        //rootPanel.add(formPanel, BorderLayout.CENTER);
 
         frame.add(rootPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

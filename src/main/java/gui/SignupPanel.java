@@ -15,15 +15,18 @@ public class SignupPanel {
         frame.setTitle(title);
         frame.setSize(width, height);
 
+        JPanel titlePanel
         // big title so u know what ur signing up for
         JLabel titleLabel = new JLabel("Create Account");
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         titleLabel.setFont(titleLabel.getFont().deriveFont(28f));
         frame.add(titleLabel, BorderLayout.NORTH);
 
+
         // the form. fill it out. or else hehe
         JPanel formPanel = new JPanel(new GridLayout(4, 2, 10, 5));
 
+        //formPanel.add(Box.createVerticalStrut(25));
         JTextField emailField = new JTextField();
         JPasswordField passwordField = new JPasswordField();
         JComboBox<String> tipoCombo = new JComboBox<>(new String[]{"Lavoratore", "Ospite", "Visitatore"});
